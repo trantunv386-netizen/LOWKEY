@@ -1,61 +1,286 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOWKEY - Arena of Valor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090711">
+<title>LOWKEY | MOD SKIN LIBRARY</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#090b12;color:#fff;font-family:Arial,sans-serif}
-header{padding:20px;background:#111522;border-bottom:1px solid #282c40;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:25px;font-weight:900;color:#a78bfa;letter-spacing:2px}
-nav{padding:14px;display:flex;gap:20px;overflow:auto;background:#101321}
-nav a{color:#ddd;text-decoration:none;white-space:nowrap}
-.hero{padding:55px 22px;background:linear-gradient(120deg,#241044,#101426 65%,#34152d)}
-.hero h1{font-size:38px;margin:0 0 12px}
-.hero p{color:#ccc;line-height:1.6}
-.tag{color:#c4b5fd;font-weight:bold}
-.search{margin:20px 0;padding:14px;width:100%;border:1px solid #38334f;border-radius:12px;background:#151827;color:white;font-size:16px}
-main{padding:22px}
-h2{font-size:22px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
-.card{background:#171a29;border:1px solid #303044;border-radius:13px;padding:15px;min-height:145px}
-.card h3{margin:8px 0}
-.card p{font-size:13px;color:#aaa}
-.card a{display:inline-block;background:#7545c7;color:white;text-decoration:none;padding:9px 13px;border-radius:8px;font-size:13px}
-.icon{font-size:30px}
-footer{text-align:center;padding:30px;color:#858599;font-size:13px}
-@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}.hero{padding:80px 8%}main{padding:30px 8%}}
+:root{
+ --bg:#090711;--panel:#13101e;--panel2:#1b1629;
+ --purple:#9b65ff;--text:#f5f0ff;
+ --muted:#9991aa;--line:#302440;
+}
+body{
+ margin:0;background:var(--bg);color:var(--text);
+ font-family:Arial,sans-serif;
+}
+header{
+ height:76px;padding:0 5%;
+ display:flex;align-items:center;justify-content:space-between;
+ border-bottom:1px solid var(--line);
+ background:#0d0a16;
+}
+.logo{font-size:25px;font-weight:900;letter-spacing:3px}
+.logo span{color:var(--purple)}
+.nav{display:flex;gap:22px;font-size:13px}
+.nav a{color:#c9c0d8;text-decoration:none}
+main{max-width:1250px;margin:auto;padding:35px 5%}
+.hero{
+ padding:35px;border:1px solid #45305f;border-radius:18px;
+ background:linear-gradient(120deg,#211332,#100d1b 65%,#26133b);
+}
+.tag{color:#c39cff;font-size:11px;letter-spacing:3px}
+h1{font-size:clamp(32px,6vw,55px);margin:13px 0}
+.hero p{color:#b9afc9;line-height:1.7}
+.stats{
+ display:flex;gap:35px;margin-top:25px;flex-wrap:wrap
+}
+.stat strong{display:block;font-size:24px;color:#c49aff}
+.stat small{color:var(--muted)}
+.section-head{
+ display:flex;justify-content:space-between;
+ align-items:center;gap:15px;margin:35px 0 18px;
+ flex-wrap:wrap
+}
+h2{font-size:22px;margin:0}
+.search{
+ width:min(100%,330px);padding:13px 16px;
+ background:var(--panel);border:1px solid var(--line);
+ border-radius:10px;color:white;outline:none;
+}
+.search:focus{border-color:var(--purple)}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px}
+.filter{
+ padding:10px 17px;border:1px solid var(--line);
+ border-radius:8px;background:var(--panel);
+ color:#bdb3ca;cursor:pointer;
+}
+.filter.active,.filter:hover{
+ background:#382052;border-color:var(--purple);color:white
+}
+.grid{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:18px
+}
+.card{
+ overflow:hidden;background:var(--panel);
+ border:1px solid var(--line);border-radius:13px;
+ transition:.2s;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--purple)}
+.preview{
+ height:180px;background:#1c1728;
+ display:flex;align-items:center;justify-content:center;
+ color:#796b8d;font-size:13px;
+}
+.preview img{width:100%;height:100%;object-fit:cover}
+.info{padding:16px}
+.info h3{margin:0 0 9px;font-size:17px}
+.info p{font-size:12px;color:var(--muted)}
+.category{
+ display:inline-block;color:#c39aff;
+ background:#2b1b40;padding:5px 9px;
+ border-radius:5px;font-size:10px
+}
+.download{
+ display:block;text-align:center;margin-top:15px;
+ padding:11px;background:#8951d8;
+ border-radius:7px;color:white;text-decoration:none;
+ font-weight:bold;font-size:13px;
+}
+.download:hover{background:#a66bff}
+.empty{
+ padding:40px 15px;text-align:center;
+ background:var(--panel);border:1px dashed var(--line);
+ border-radius:12px;color:var(--muted);
+}
+footer{
+ margin-top:60px;padding:28px 5%;
+ border-top:1px solid var(--line);
+ text-align:center;color:var(--muted);font-size:12px
+}
+@media(max-width:750px){
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ header{padding:0 4%}
+ .nav{gap:10px;font-size:11px}
+ main{padding:25px 4%}
+ .hero{padding:25px}
+}
+@media(max-width:440px){
+ .grid{grid-template-columns:1fr 1fr;gap:10px}
+ .preview{height:130px}
+ .info{padding:11px}
+ .info h3{font-size:14px}
+ .download{font-size:11px}
+ .nav a:nth-child(2){display:none}
+}
 </style>
 </head>
 <body>
-<header><div class="logo">LOWKEY</div><span>ARENA OF VALOR</span></header>
-<nav><a href="#">Trang chủ</a><a href="#mods">Thư viện</a><a href="#guide">Hướng dẫn</a><a href="#about">Giới thiệu</a></nav>
-<section class="hero">
-<div class="tag">LOWKEY GAMING COMMUNITY</div>
-<h1>MOD LIÊN QUÂN</h1>
-<p>Khám phá thư viện giao diện, hình nền, skin fan-made và nội dung tùy biến dành cho cộng đồng Arena of Valor.</p>
-<input class="search" id="search" placeholder="Tìm kiếm nội dung..." oninput="filterCards()">
-</section>
-<main id="mods">
-<h2>✦ Danh mục nổi bật</h2>
-<div class="grid" id="cards">
-<div class="card"><div class="icon">🎭</div><h3>Thư viện Skin</h3><p>Hình ảnh và giới thiệu trang phục tướng.</p><a href="#about">Khám phá</a></div>
-<div class="card"><div class="icon">✨</div><h3>Hiệu ứng</h3><p>Ý tưởng hiệu ứng hình ảnh fan-made.</p><a href="#about">Khám phá</a></div>
-<div class="card"><div class="icon">🎨</div><h3>Giao diện</h3><p>Bộ sưu tập hình nền và thiết kế.</p><a href="#about">Khám phá</a></div>
-<div class="card"><div class="icon">📖</div><h3>Hướng dẫn</h3><p>Thông tin và hướng dẫn sử dụng.</p><a href="#guide">Xem thêm</a></div>
-</div>
-<section id="guide"><h2>Hướng dẫn</h2><p>Nội dung và tệp tải xuống cần được kiểm tra nguồn gốc, tính an toàn và khả năng tương thích trước khi sử dụng.</p></section>
-<section id="about"><h2>Về LOWKEY</h2><p>LOWKEY là website cộng đồng chia sẻ và giới thiệu nội dung sáng tạo liên quan đến Liên Quân Mobile. Không cung cấp hack, cheat hoặc công cụ gian lận.</p></section>
+
+<header>
+ <div class="logo">LOW<span>KEY</span></div>
+ <nav class="nav">
+  <a href="#home">TRANG CHỦ</a>
+  <a href="#library">THƯ VIỆN</a>
+  <a href="#about">GIỚI THIỆU</a>
+ </nav>
+</header>
+
+<main id="home">
+ <section class="hero">
+  <div class="tag">LOWKEY GAMING ARCHIVE</div>
+  <h1>MOD SKIN<br><span style="color:#b68aff">LIBRARY.</span></h1>
+  <p>
+   Thư viện lưu trữ và chia sẻ chỉ mục MOD SKIN.
+   Khám phá hình ảnh, thông tin và liên kết tải
+   trong một giao diện duy nhất.
+  </p>
+  <div class="stats">
+   <div class="stat">
+    <strong id="total">0</strong>
+    <small>SKIN</small>
+   </div>
+   <div class="stat">
+    <strong>24/7</strong>
+    <small>ACCESS</small>
+   </div>
+   <div class="stat">
+    <strong>LOWKEY</strong>
+    <small>LIBRARY</small>
+   </div>
+  </div>
+ </section>
+
+ <section id="library">
+  <div class="section-head">
+   <h2>Thư viện MOD SKIN</h2>
+   <input id="search" class="search"
+    placeholder="Tìm tên skin hoặc mã..." />
+  </div>
+
+  <div class="filters">
+   <button class="filter active" data-cat="all">Tất cả</button>
+   <button class="filter" data-cat="Lien Quan">Liên Quân</button>
+   <button class="filter" data-cat="Other">Khác</button>
+  </div>
+
+  <div class="grid" id="cards"></div>
+ </section>
+
+ <section id="about" style="margin-top:45px">
+  <h2>About LOWKEY</h2>
+  <p style="color:#9991aa;line-height:1.8">
+   LOWKEY là thư viện chỉ mục MOD SKIN,
+   nơi tổng hợp hình ảnh và các liên kết tài nguyên.
+  </p>
+ </section>
 </main>
-<footer>© 2026 LOWKEY. Fan-made community website. Không liên kết chính thức với nhà phát hành.</footer>
+
+<footer>
+ LOWKEY © 2026 · MOD SKIN LIBRARY
+</footer>
+
 <script>
-function filterCards(){
-const q=document.getElementById('search').value.toLowerCase();
-document.querySelectorAll('.card').forEach(card=>{
-card.style.display=card.innerText.toLowerCase().includes(q)?'block':'none';
-});
+// DỮ LIỆU SKIN ĐƯỢC QUẢN LÝ TẠI ĐÂY
+// Thay thông tin mẫu bằng dữ liệu thật khi có.
+
+const skins = [];
+
+let currentCategory = "all";
+
+const cards = document.getElementById("cards");
+const search = document.getElementById("search");
+
+function render(){
+ const keyword = search.value.toLowerCase().trim();
+
+ const result = skins.filter(s=>{
+  const matchCategory =
+   currentCategory==="all" || s.category===currentCategory;
+
+  const matchText =
+   (s.name+" "+s.code).toLowerCase().includes(keyword);
+
+  return matchCategory && matchText;
+ });
+
+ document.getElementById("total").textContent=skins.length;
+
+ cards.innerHTML="";
+
+ if(!result.length){
+  cards.innerHTML=`
+   <div class="empty" style="grid-column:1/-1">
+    <h3>Chưa tìm thấy MOD SKIN</h3>
+    <p>Thư viện đang chờ dữ liệu mới.</p>
+   </div>`;
+  return;
+ }
+
+ result.forEach(s=>{
+  const card=document.createElement("article");
+  card.className="card";
+
+  const preview=document.createElement("div");
+  preview.className="preview";
+
+  if(s.image){
+   const img=document.createElement("img");
+   img.src=s.image;
+   img.alt=s.name;
+   preview.appendChild(img);
+  }else{
+   preview.textContent="LOWKEY PREVIEW";
+  }
+
+  const info=document.createElement("div");
+  info.className="info";
+
+  const title=document.createElement("h3");
+  title.textContent=s.name;
+
+  const category=document.createElement("span");
+  category.className="category";
+  category.textContent=s.category;
+
+  const code=document.createElement("p");
+  code.textContent="Mã: "+s.code;
+
+  const link=document.createElement("a");
+  link.className="download";
+  link.textContent="XEM LIÊN KẾT TẢI";
+  link.href=s.url || "#";
+  link.target="_blank";
+  link.rel="noopener noreferrer";
+
+  if(!s.url){
+   link.addEventListener("click",e=>e.preventDefault());
+  }
+
+  info.append(title,category,code,link);
+  card.append(preview,info);
+  cards.appendChild(card);
+ });
 }
+
+document.querySelectorAll(".filter").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  document.querySelector(".filter.active")
+   ?.classList.remove("active");
+
+  btn.classList.add("active");
+  currentCategory=btn.dataset.cat;
+  render();
+ });
+});
+
+search.addEventListener("input",render);
+
+render();
 </script>
 </body>
-  </html>
+</html>
