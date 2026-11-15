@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOWKEY - Arena of Valor</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090b12;color:#fff;font-family:Arial,sans-serif}
+header{padding:20px;background:#111522;border-bottom:1px solid #282c40;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:900;color:#a78bfa;letter-spacing:2px}
+nav{padding:14px;display:flex;gap:20px;overflow:auto;background:#101321}
+nav a{color:#ddd;text-decoration:none;white-space:nowrap}
+.hero{padding:55px 22px;background:linear-gradient(120deg,#241044,#101426 65%,#34152d)}
+.hero h1{font-size:38px;margin:0 0 12px}
+.hero p{color:#ccc;line-height:1.6}
+.tag{color:#c4b5fd;font-weight:bold}
+.search{margin:20px 0;padding:14px;width:100%;border:1px solid #38334f;border-radius:12px;background:#151827;color:white;font-size:16px}
+main{padding:22px}
+h2{font-size:22px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.card{background:#171a29;border:1px solid #303044;border-radius:13px;padding:15px;min-height:145px}
+.card h3{margin:8px 0}
+.card p{font-size:13px;color:#aaa}
+.card a{display:inline-block;background:#7545c7;color:white;text-decoration:none;padding:9px 13px;border-radius:8px;font-size:13px}
+.icon{font-size:30px}
+footer{text-align:center;padding:30px;color:#858599;font-size:13px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}.hero{padding:80px 8%}main{padding:30px 8%}}
+</style>
+</head>
+<body>
+<header><div class="logo">LOWKEY</div><span>ARENA OF VALOR</span></header>
+<nav><a href="#">Trang chủ</a><a href="#mods">Thư viện</a><a href="#guide">Hướng dẫn</a><a href="#about">Giới thiệu</a></nav>
+<section class="hero">
+<div class="tag">LOWKEY GAMING COMMUNITY</div>
+<h1>MOD LIÊN QUÂN</h1>
+<p>Khám phá thư viện giao diện, hình nền, skin fan-made và nội dung tùy biến dành cho cộng đồng Arena of Valor.</p>
+<input class="search" id="search" placeholder="Tìm kiếm nội dung..." oninput="filterCards()">
+</section>
+<main id="mods">
+<h2>✦ Danh mục nổi bật</h2>
+<div class="grid" id="cards">
+<div class="card"><div class="icon">🎭</div><h3>Thư viện Skin</h3><p>Hình ảnh và giới thiệu trang phục tướng.</p><a href="#about">Khám phá</a></div>
+<div class="card"><div class="icon">✨</div><h3>Hiệu ứng</h3><p>Ý tưởng hiệu ứng hình ảnh fan-made.</p><a href="#about">Khám phá</a></div>
+<div class="card"><div class="icon">🎨</div><h3>Giao diện</h3><p>Bộ sưu tập hình nền và thiết kế.</p><a href="#about">Khám phá</a></div>
+<div class="card"><div class="icon">📖</div><h3>Hướng dẫn</h3><p>Thông tin và hướng dẫn sử dụng.</p><a href="#guide">Xem thêm</a></div>
+</div>
+<section id="guide"><h2>Hướng dẫn</h2><p>Nội dung và tệp tải xuống cần được kiểm tra nguồn gốc, tính an toàn và khả năng tương thích trước khi sử dụng.</p></section>
+<section id="about"><h2>Về LOWKEY</h2><p>LOWKEY là website cộng đồng chia sẻ và giới thiệu nội dung sáng tạo liên quan đến Liên Quân Mobile. Không cung cấp hack, cheat hoặc công cụ gian lận.</p></section>
+</main>
+<footer>© 2026 LOWKEY. Fan-made community website. Không liên kết chính thức với nhà phát hành.</footer>
+<script>
+function filterCards(){
+const q=document.getElementById('search').value.toLowerCase();
+document.querySelectorAll('.card').forEach(card=>{
+card.style.display=card.innerText.toLowerCase().includes(q)?'block':'none';
+});
+}
+</script>
+</body>
+                                                                                                                                               </html>
