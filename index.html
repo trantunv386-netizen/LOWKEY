@@ -3,284 +3,625 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090711">
-<title>LOWKEY | MOD SKIN LIBRARY</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#080711">
+<title>LOWKEY — Gaming Database</title>
 <style>
-*{box-sizing:border-box}
 :root{
- --bg:#090711;--panel:#13101e;--panel2:#1b1629;
- --purple:#9b65ff;--text:#f5f0ff;
- --muted:#9991aa;--line:#302440;
+ --bg:#080711;--panel:#100e1a;--panel2:#171323;
+ --line:#292238;--purple:#a56cff;--white:#f5f1ff;
+ --muted:#91899f;--green:#70e5b1;
 }
+*{box-sizing:border-box}
 body{
- margin:0;background:var(--bg);color:var(--text);
- font-family:Arial,sans-serif;
+ margin:0;background:var(--bg);color:var(--white);
+ font-family:Inter,Arial,sans-serif;
 }
-header{
- height:76px;padding:0 5%;
- display:flex;align-items:center;justify-content:space-between;
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.topbar{
+ height:72px;display:flex;align-items:center;
+ justify-content:space-between;padding:0 5%;
  border-bottom:1px solid var(--line);
- background:#0d0a16;
+ background:#0c0a14;position:sticky;top:0;z-index:10;
 }
-.logo{font-size:25px;font-weight:900;letter-spacing:3px}
-.logo span{color:var(--purple)}
-.nav{display:flex;gap:22px;font-size:13px}
-.nav a{color:#c9c0d8;text-decoration:none}
-main{max-width:1250px;margin:auto;padding:35px 5%}
+.brand{font-size:27px;font-weight:1000;letter-spacing:3px}
+.brand span{color:var(--purple)}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{font-size:12px;color:#b9b0c9}
+.nav a:hover{color:white}
+.admin-btn,.primary{
+ border:0;background:linear-gradient(110deg,#7541c9,#ad72ff);
+ color:white;padding:11px 17px;border-radius:7px;font-weight:800;
+}
+.wrap{max-width:1450px;margin:auto;padding:25px 5% 60px}
 .hero{
- padding:35px;border:1px solid #45305f;border-radius:18px;
- background:linear-gradient(120deg,#211332,#100d1b 65%,#26133b);
+ min-height:300px;display:grid;grid-template-columns:1.2fr .8fr;
+ border:1px solid #392753;border-radius:15px;overflow:hidden;
+ background:radial-gradient(ellipse at 80% 50%,#382052 0%,#171023 45%,#100d19 100%);
 }
-.tag{color:#c39cff;font-size:11px;letter-spacing:3px}
-h1{font-size:clamp(32px,6vw,55px);margin:13px 0}
-.hero p{color:#b9afc9;line-height:1.7}
-.stats{
- display:flex;gap:35px;margin-top:25px;flex-wrap:wrap
+.hero-copy{padding:45px;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-size:10px;letter-spacing:4px;color:#bd91ff;font-weight:bold}
+.hero h1{font-size:clamp(38px,5vw,66px);line-height:.98;margin:16px 0}
+.hero h1 span{color:var(--purple)}
+.hero p{max-width:500px;color:#b4a9c4;line-height:1.8;font-size:14px}
+.hero-actions{display:flex;gap:12px;margin-top:15px;flex-wrap:wrap}
+.outline{
+ border:1px solid #594071;background:transparent;color:white;
+ padding:11px 17px;border-radius:7px;
 }
-.stat strong{display:block;font-size:24px;color:#c49aff}
-.stat small{color:var(--muted)}
-.section-head{
- display:flex;justify-content:space-between;
- align-items:center;gap:15px;margin:35px 0 18px;
- flex-wrap:wrap
+.hero-art{display:flex;align-items:center;justify-content:center;padding:15px}
+.hero-art img{width:100%;height:270px;object-fit:contain}
+.stats{display:flex;gap:32px;margin-top:25px}
+.stats strong{display:block;font-size:23px;color:#d0afff}
+.stats small{font-size:10px;color:var(--muted);letter-spacing:1px}
+.section{margin-top:38px}
+.section-title{
+ display:flex;align-items:center;justify-content:space-between;
+ gap:15px;margin-bottom:17px;flex-wrap:wrap
 }
-h2{font-size:22px;margin:0}
-.search{
- width:min(100%,330px);padding:13px 16px;
+.section-title h2{font-size:20px;margin:0}
+.section-title p{font-size:11px;color:var(--muted);margin:5px 0 0}
+.searchbar{
+ display:flex;gap:10px;align-items:center;
  background:var(--panel);border:1px solid var(--line);
- border-radius:10px;color:white;outline:none;
+ padding:10px 14px;border-radius:8px;width:min(100%,350px);
 }
-.search:focus{border-color:var(--purple)}
-.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px}
-.filter{
- padding:10px 17px;border:1px solid var(--line);
- border-radius:8px;background:var(--panel);
- color:#bdb3ca;cursor:pointer;
+.searchbar input{
+ width:100%;background:none;border:0;outline:0;color:white;
+ font-size:13px;
 }
-.filter.active,.filter:hover{
- background:#382052;border-color:var(--purple);color:white
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}
+.chip{
+ border:1px solid var(--line);background:var(--panel);
+ color:#aaa0b8;padding:9px 15px;border-radius:6px;font-size:12px;
 }
-.grid{
- display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
- gap:18px
+.chip.active,.chip:hover{
+ color:white;background:#302044;border-color:var(--purple)
 }
-.card{
- overflow:hidden;background:var(--panel);
- border:1px solid var(--line);border-radius:13px;
- transition:.2s;
+.library{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+ gap:15px;
 }
-.card:hover{transform:translateY(-4px);border-color:var(--purple)}
-.preview{
- height:180px;background:#1c1728;
- display:flex;align-items:center;justify-content:center;
- color:#796b8d;font-size:13px;
+.skin{
+ background:var(--panel);border:1px solid var(--line);
+ border-radius:10px;overflow:hidden;transition:.2s;
 }
-.preview img{width:100%;height:100%;object-fit:cover}
-.info{padding:16px}
-.info h3{margin:0 0 9px;font-size:17px}
-.info p{font-size:12px;color:var(--muted)}
-.category{
- display:inline-block;color:#c39aff;
- background:#2b1b40;padding:5px 9px;
- border-radius:5px;font-size:10px
+.skin:hover{border-color:#9860df;transform:translateY(-3px)}
+.skin-img{
+ height:180px;background:linear-gradient(135deg,#21172f,#11101a);
+ position:relative;display:flex;align-items:center;justify-content:center;
+ color:#82758e;font-size:11px;overflow:hidden;
 }
-.download{
- display:block;text-align:center;margin-top:15px;
- padding:11px;background:#8951d8;
- border-radius:7px;color:white;text-decoration:none;
- font-weight:bold;font-size:13px;
+.skin-img img{width:100%;height:100%;object-fit:cover}
+.skin-tag{
+ position:absolute;top:10px;left:10px;
+ background:#241633;color:#d1adff;
+ padding:6px 9px;border-radius:4px;font-size:9px;
 }
-.download:hover{background:#a66bff}
+.skin-body{padding:14px}
+.skin-body h3{font-size:15px;margin:0 0 8px}
+.skin-meta{font-size:11px;color:var(--muted);line-height:1.8}
+.skin-actions{display:flex;gap:8px;margin-top:13px}
+.skin-actions button{
+ flex:1;border:1px solid #48315f;border-radius:5px;
+ padding:9px 5px;background:#241833;color:#d8c2ff;
+ font-size:10px;font-weight:bold;
+}
+.skin-actions button:hover{background:#523477;color:white}
 .empty{
- padding:40px 15px;text-align:center;
- background:var(--panel);border:1px dashed var(--line);
- border-radius:12px;color:var(--muted);
+ grid-column:1/-1;text-align:center;padding:55px 15px;
+ border:1px dashed #40334f;border-radius:10px;color:var(--muted);
+ background:#100e18;
 }
+.empty b{display:block;color:white;font-size:17px;margin-bottom:8px}
+.info-grid{
+ display:grid;grid-template-columns:repeat(3,1fr);gap:14px
+}
+.info-box{
+ padding:20px;border:1px solid var(--line);
+ background:var(--panel);border-radius:9px;
+}
+.info-box b{font-size:14px}
+.info-box p{font-size:12px;color:var(--muted);line-height:1.7}
 footer{
- margin-top:60px;padding:28px 5%;
- border-top:1px solid var(--line);
- text-align:center;color:var(--muted);font-size:12px
+ border-top:1px solid var(--line);padding:25px 5%;
+ display:flex;justify-content:space-between;gap:15px;
+ color:var(--muted);font-size:11px;flex-wrap:wrap
 }
-@media(max-width:750px){
- .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
- header{padding:0 4%}
- .nav{gap:10px;font-size:11px}
- main{padding:25px 4%}
- .hero{padding:25px}
+.overlay{
+ display:none;position:fixed;inset:0;z-index:30;
+ background:#000c;align-items:center;justify-content:center;
+ padding:15px;overflow:auto;
 }
-@media(max-width:440px){
- .grid{grid-template-columns:1fr 1fr;gap:10px}
- .preview{height:130px}
- .info{padding:11px}
- .info h3{font-size:14px}
- .download{font-size:11px}
- .nav a:nth-child(2){display:none}
+.overlay.show{display:flex}
+.modal{
+ width:min(550px,100%);max-height:90vh;overflow:auto;
+ background:#13101d;border:1px solid #4a3564;
+ border-radius:12px;padding:22px;
+}
+.modal h2{margin:0 0 18px;font-size:21px}
+.field{margin-bottom:13px}
+.field label{
+ display:block;font-size:11px;color:#b9a9ce;margin-bottom:7px
+}
+.field input,.field select{
+ width:100%;padding:12px;background:#0b0912;
+ border:1px solid #352a45;color:white;border-radius:6px;
+ outline:none;
+}
+.field input:focus,.field select:focus{border-color:var(--purple)}
+.modal-actions{display:flex;gap:10px;margin-top:18px}
+.modal-actions button{flex:1}
+.secondary{
+ background:#211a2c;color:white;border:1px solid #443452;
+ padding:11px;border-radius:6px;
+}
+.close{
+ float:right;background:none;border:0;color:white;font-size:23px
+}
+.detail-image{width:100%;max-height:280px;object-fit:contain;
+ background:#0b0912;border-radius:8px;margin-bottom:15px}
+.notice{
+ padding:12px;background:#201a2b;border:1px solid #4b3b60;
+ border-radius:7px;color:#c5b5d8;font-size:11px;line-height:1.7;
+ margin-bottom:15px
+}
+@media(max-width:850px){
+ .library{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .hero-copy{padding:30px}
+}
+@media(max-width:600px){
+ .topbar{height:62px;padding:0 4%;gap:8px}
+ .brand{font-size:21px}
+ .nav{gap:12px}
+ .nav a{font-size:10px}
+ .admin-btn{padding:9px;font-size:10px}
+ .wrap{padding:17px 4% 40px}
+ .hero{grid-template-columns:1fr;min-height:0}
+ .hero-copy{padding:26px 22px 10px}
+ .hero-art{height:125px}
+ .hero-art img{height:125px}
+ .hero h1{font-size:42px}
+ .hero p{font-size:12px}
+ .stats{gap:23px;margin-top:15px}
+ .stats strong{font-size:19px}
+ .library{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .skin-img{height:130px}
+ .skin-body{padding:10px}
+ .skin-body h3{font-size:13px}
+ .skin-actions button{font-size:9px}
+ .info-grid{grid-template-columns:1fr}
+}
+@media(orientation:landscape) and (max-height:500px){
+ .topbar{height:55px}
+ .wrap{padding-top:15px}
+ .hero{min-height:210px;grid-template-columns:1.2fr .8fr}
+ .hero-copy{padding:22px}
+ .hero-art img{height:190px}
+ .hero h1{font-size:42px}
+ .section{margin-top:25px}
+ .skin-img{height:125px}
 }
 </style>
 </head>
 <body>
 
-<header>
- <div class="logo">LOW<span>KEY</span></div>
+<header class="topbar">
+ <a class="brand" href="#home">LOW<span>KEY</span></a>
  <nav class="nav">
-  <a href="#home">TRANG CHỦ</a>
-  <a href="#library">THƯ VIỆN</a>
-  <a href="#about">GIỚI THIỆU</a>
+  <a href="#home">HOME</a>
+  <a href="#library">DATABASE</a>
+  <a href="#about">ABOUT</a>
  </nav>
+ <button class="admin-btn" onclick="openAdmin()">ADMIN PANEL</button>
 </header>
 
-<main id="home">
+<main class="wrap" id="home">
+
  <section class="hero">
-  <div class="tag">LOWKEY GAMING ARCHIVE</div>
-  <h1>MOD SKIN<br><span style="color:#b68aff">LIBRARY.</span></h1>
-  <p>
-   Thư viện lưu trữ và chia sẻ chỉ mục MOD SKIN.
-   Khám phá hình ảnh, thông tin và liên kết tải
-   trong một giao diện duy nhất.
-  </p>
-  <div class="stats">
-   <div class="stat">
-    <strong id="total">0</strong>
-    <small>SKIN</small>
+  <div class="hero-copy">
+   <div class="eyebrow">NEXT GENERATION GAMING ARCHIVE</div>
+   <h1>ENTER THE<br><span>LOWKEY</span> WORLD.</h1>
+   <p>
+    A gaming database for skin collections, hero information
+    and visual archives. Explore the collection.
+   </p>
+   <div class="hero-actions">
+    <a class="primary" href="#library">EXPLORE DATABASE ↗</a>
+    <a class="outline" href="#about">ABOUT LOWKEY</a>
    </div>
-   <div class="stat">
-    <strong>24/7</strong>
-    <small>ACCESS</small>
+   <div class="stats">
+    <div><strong id="skinCount">0</strong><small>SKIN ARCHIVED</small></div>
+    <div><strong>24/7</strong><small>ACCESS</small></div>
+    <div><strong>V2.0</strong><small>VERSION</small></div>
    </div>
-   <div class="stat">
-    <strong>LOWKEY</strong>
-    <small>LIBRARY</small>
-   </div>
+  </div>
+  <div class="hero-art">
+   <img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=900"
+    alt="LOWKEY gaming artwork">
   </div>
  </section>
 
- <section id="library">
-  <div class="section-head">
-   <h2>Thư viện MOD SKIN</h2>
-   <input id="search" class="search"
-    placeholder="Tìm tên skin hoặc mã..." />
+ <section class="section" id="library">
+  <div class="section-title">
+   <div>
+    <h2>SKIN DATABASE</h2>
+    <p>EXPLORE THE COLLECTION / LOWKEY ARCHIVE</p>
+   </div>
+   <div class="searchbar">
+    <span>⌕</span>
+    <input id="search" placeholder="Search hero, skin, code...">
+   </div>
   </div>
 
   <div class="filters">
-   <button class="filter active" data-cat="all">Tất cả</button>
-   <button class="filter" data-cat="Lien Quan">Liên Quân</button>
-   <button class="filter" data-cat="Other">Khác</button>
+   <button class="chip active" data-filter="all">ALL ITEMS</button>
+   <button class="chip" data-filter="Lien Quan">LIÊN QUÂN</button>
+   <button class="chip" data-filter="Other">OTHER</button>
   </div>
 
-  <div class="grid" id="cards"></div>
+  <div class="library" id="libraryGrid"></div>
  </section>
 
- <section id="about" style="margin-top:45px">
-  <h2>About LOWKEY</h2>
-  <p style="color:#9991aa;line-height:1.8">
-   LOWKEY là thư viện chỉ mục MOD SKIN,
-   nơi tổng hợp hình ảnh và các liên kết tài nguyên.
-  </p>
+ <section class="section" id="about">
+  <div class="section-title">
+   <div>
+    <h2>ABOUT LOWKEY</h2>
+    <p>THE DATABASE PROJECT</p>
+   </div>
+  </div>
+  <div class="info-grid">
+   <div class="info-box">
+    <b>01 / ARCHIVE</b>
+    <p>Thư viện lưu trữ hình ảnh và thông tin skin.</p>
+   </div>
+   <div class="info-box">
+    <b>02 / DISCOVER</b>
+    <p>Tìm kiếm theo tên nhân vật, tên skin và mã dữ liệu.</p>
+   </div>
+   <div class="info-box">
+    <b>03 / COLLECTION</b>
+    <p>Tổng hợp liên kết và tài nguyên được đăng tải.</p>
+   </div>
+  </div>
  </section>
 </main>
 
 <footer>
- LOWKEY © 2026 · MOD SKIN LIBRARY
+ <b>LOWKEY © 2026</b>
+ <span>GAMING DATABASE · VERSION 2.0</span>
 </footer>
 
+<!-- SKIN DETAIL -->
+<div class="overlay" id="detailOverlay">
+ <div class="modal">
+  <button class="close" onclick="closeModal('detailOverlay')">×</button>
+  <div id="detailContent"></div>
+ </div>
+</div>
+
+<!-- ADMIN LOCAL WORKSPACE -->
+<div class="overlay" id="adminOverlay">
+ <div class="modal">
+  <button class="close" onclick="closeModal('adminOverlay')">×</button>
+  <h2>LOWKEY / ADMIN WORKSPACE</h2>
+
+  <div class="notice">
+   Đây là khu vực quản lý bản nháp trên thiết bị hiện tại.
+   Dữ liệu lưu trong trình duyệt này, KHÔNG phải hệ thống
+   quản trị bảo mật và chưa đồng bộ cho khách truy cập.
+  </div>
+
+  <form id="skinForm">
+   <div class="field">
+    <label>TÊN SKIN</label>
+    <input id="skinName" required placeholder="Nhập tên skin">
+   </div>
+   <div class="field">
+    <label>TÊN HERO</label>
+    <input id="heroName" placeholder="Nhập tên hero">
+   </div>
+   <div class="field">
+    <label>MÃ HERO / SKIN</label>
+    <input id="skinCode" placeholder="Nhập mã">
+   </div>
+   <div class="field">
+    <label>DANH MỤC</label>
+    <select id="skinCategory">
+     <option value="Lien Quan">Liên Quân</option>
+     <option value="Other">Khác</option>
+    </select>
+   </div>
+   <div class="field">
+    <label>ẢNH PREVIEW (TỪ ĐIỆN THOẠI)</label>
+    <input id="skinImage" type="file" accept="image/*">
+   </div>
+   <div class="field">
+    <label>LINK TẢI / LINK THAM KHẢO</label>
+    <input id="skinUrl" type="url" placeholder="https://...">
+   </div>
+   <div class="modal-actions">
+    <button class="primary" type="submit">SAVE LOCAL</button>
+    <button class="secondary" type="button"
+     onclick="closeModal('adminOverlay')">CLOSE</button>
+   </div>
+  </form>
+
+  <hr style="border-color:#352a45;margin:22px 0">
+  <h3 style="font-size:14px">LOCAL ITEMS</h3>
+  <div id="adminList"></div>
+ </div>
+</div>
+
 <script>
-// DỮ LIỆU SKIN ĐƯỢC QUẢN LÝ TẠI ĐÂY
-// Thay thông tin mẫu bằng dữ liệu thật khi có.
+const STORAGE_KEY="lowkey_v2_items";
 
-const skins = [];
+let skins=[];
+let activeFilter="all";
 
-let currentCategory = "all";
+try{
+ skins=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");
+ if(!Array.isArray(skins)) skins=[];
+}catch(e){skins=[]}
 
-const cards = document.getElementById("cards");
-const search = document.getElementById("search");
+const $=id=>document.getElementById(id);
+
+function saveData(){
+ localStorage.setItem(STORAGE_KEY,JSON.stringify(skins));
+}
+
+function safeLink(url){
+ try{
+  const u=new URL(url);
+  return ["http:","https:"].includes(u.protocol)?u.href:"";
+ }catch(e){return "";}
+}
 
 function render(){
- const keyword = search.value.toLowerCase().trim();
+ const keyword=$("search").value.toLowerCase().trim();
 
- const result = skins.filter(s=>{
-  const matchCategory =
-   currentCategory==="all" || s.category===currentCategory;
-
-  const matchText =
-   (s.name+" "+s.code).toLowerCase().includes(keyword);
-
-  return matchCategory && matchText;
+ const filtered=skins.filter(s=>{
+  const text=[s.name,s.hero,s.code,s.category]
+   .join(" ").toLowerCase();
+  return (activeFilter==="all"||s.category===activeFilter)
+   &&text.includes(keyword);
  });
 
- document.getElementById("total").textContent=skins.length;
+ $("skinCount").textContent=skins.length;
+ const grid=$("libraryGrid");
+ grid.innerHTML="";
 
- cards.innerHTML="";
-
- if(!result.length){
-  cards.innerHTML=`
-   <div class="empty" style="grid-column:1/-1">
-    <h3>Chưa tìm thấy MOD SKIN</h3>
-    <p>Thư viện đang chờ dữ liệu mới.</p>
-   </div>`;
+ if(!filtered.length){
+  const empty=document.createElement("div");
+  empty.className="empty";
+  const title=document.createElement("b");
+  title.textContent=skins.length?"NO RESULTS FOUND":"DATABASE IS EMPTY";
+  const desc=document.createElement("span");
+  desc.textContent=skins.length
+   ?"Thử từ khóa hoặc danh mục khác."
+   :"Chưa có skin nào. Hãy thêm dữ liệu từ khu vực quản lý.";
+  empty.append(title,desc);
+  grid.appendChild(empty);
   return;
  }
 
- result.forEach(s=>{
+ filtered.forEach(s=>{
   const card=document.createElement("article");
-  card.className="card";
+  card.className="skin";
 
-  const preview=document.createElement("div");
-  preview.className="preview";
+  const picture=document.createElement("div");
+  picture.className="skin-img";
 
   if(s.image){
    const img=document.createElement("img");
    img.src=s.image;
    img.alt=s.name;
-   preview.appendChild(img);
+   picture.appendChild(img);
   }else{
-   preview.textContent="LOWKEY PREVIEW";
+   picture.textContent="NO PREVIEW";
   }
 
-  const info=document.createElement("div");
-  info.className="info";
+  const tag=document.createElement("span");
+  tag.className="skin-tag";
+  tag.textContent=s.category==="Lien Quan"?"LIÊN QUÂN":"OTHER";
+  picture.appendChild(tag);
 
-  const title=document.createElement("h3");
-  title.textContent=s.name;
+  const body=document.createElement("div");
+  body.className="skin-body";
 
-  const category=document.createElement("span");
-  category.className="category";
-  category.textContent=s.category;
+  const name=document.createElement("h3");
+  name.textContent=s.name;
 
-  const code=document.createElement("p");
-  code.textContent="Mã: "+s.code;
+  const meta=document.createElement("div");
+  meta.className="skin-meta";
+  meta.textContent="HERO: "+(s.hero||"N/A")+" · CODE: "+(s.code||"N/A");
 
-  const link=document.createElement("a");
-  link.className="download";
-  link.textContent="XEM LIÊN KẾT TẢI";
-  link.href=s.url || "#";
-  link.target="_blank";
-  link.rel="noopener noreferrer";
+  const actions=document.createElement("div");
+  actions.className="skin-actions";
 
-  if(!s.url){
-   link.addEventListener("click",e=>e.preventDefault());
-  }
+  const detail=document.createElement("button");
+  detail.textContent="DETAIL";
+  detail.onclick=()=>showDetail(s.id);
 
-  info.append(title,category,code,link);
-  card.append(preview,info);
-  cards.appendChild(card);
+  const download=document.createElement("button");
+  download.textContent="LINK ↗";
+  download.onclick=()=>{
+   const link=safeLink(s.url);
+   if(link) window.open(link,"_blank","noopener");
+   else alert("Skin này chưa có liên kết.");
+  };
+
+  actions.append(detail,download);
+  body.append(name,meta,actions);
+  card.append(picture,body);
+  grid.appendChild(card);
  });
 }
 
-document.querySelectorAll(".filter").forEach(btn=>{
- btn.addEventListener("click",()=>{
-  document.querySelector(".filter.active")
-   ?.classList.remove("active");
+function showDetail(id){
+ const s=skins.find(x=>x.id===id);
+ if(!s)return;
 
+ const box=$("detailContent");
+ box.innerHTML="";
+
+ const title=document.createElement("h2");
+ title.textContent=s.name;
+
+ if(s.image){
+  const img=document.createElement("img");
+  img.className="detail-image";
+  img.src=s.image;
+  img.alt=s.name;
+  box.appendChild(img);
+ }
+ const hero=document.createElement("p");
+ hero.textContent="Hero: "+(s.hero||"N/A");
+ const code=document.createElement("p");
+ code.textContent="Code: "+(s.code||"N/A");
+ const category=document.createElement("p");
+ category.textContent="Category: "+s.category;
+
+ const copy=document.createElement("button");
+ copy.className="primary";
+ copy.textContent="COPY CODE";
+ copy.onclick=()=>{
+  if(navigator.clipboard){
+   navigator.clipboard.writeText(s.code||"")
+    .then(()=>alert("Đã sao chép mã."));
+  }else alert("Trình duyệt không hỗ trợ sao chép.");
+ };
+
+ const link=document.createElement("a");
+ link.className="primary";
+ link.style.display="inline-block";
+ link.style.marginLeft="8px";
+ link.textContent="OPEN LINK ↗";
+ const valid=safeLink(s.url);
+ if(valid){link.href=valid;link.target="_blank";link.rel="noopener";}
+ else link.style.display="none";
+
+ box.append(title,hero,code,category,copy,link);
+ $("detailOverlay").classList.add("show");
+}
+
+function openAdmin(){
+ renderAdmin();
+ $("adminOverlay").classList.add("show");
+}
+
+function renderAdmin(){
+ const list=$("adminList");
+ list.innerHTML="";
+
+ if(!skins.length){
+  list.textContent="Chưa có dữ liệu.";
+  return;
+ }
+
+ skins.forEach(s=>{
+  const row=document.createElement("div");
+  row.style.cssText="display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid #352a45;font-size:12px";
+
+  const name=document.createElement("span");
+  name.textContent=s.name;
+
+  const del=document.createElement("button");
+  del.textContent="DELETE";
+  del.className="secondary";
+  del.onclick=()=>{
+   if(confirm("Xóa "+s.name+" khỏi dữ liệu trên thiết bị?")){
+    skins=skins.filter(x=>x.id!==s.id);
+    saveData();
+    render();
+    renderAdmin();
+   }
+  };
+
+  row.append(name,del);
+  list.appendChild(row);
+ });
+}
+
+$("skinForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+
+ const file=$("skinImage").files[0];
+ let image="";
+
+ if(file){
+  if(!file.type.startsWith("image/")){
+   alert("Vui lòng chọn file ảnh.");
+   return;
+  }
+  if(file.size>1500000){
+   alert("Ảnh quá lớn. Hãy chọn ảnh dưới 1.5 MB.");
+   return;
+  }
+  image=await new Promise((resolve,reject)=>{
+   const reader=new FileReader();
+   reader.onload=()=>resolve(reader.result);
+   reader.onerror=reject;
+   reader.readAsDataURL(file);
+  });
+ }
+
+ const item={
+  id:Date.now().toString(),
+  name:$("skinName").value.trim(),
+  hero:$("heroName").value.trim(),
+  code:$("skinCode").value.trim(),
+  category:$("skinCategory").value,
+  image,
+  url:safeLink($("skinUrl").value.trim())
+ };
+
+ if(!item.name){
+  alert("Hãy nhập tên skin.");
+  return;
+ }
+
+ skins.unshift(item);
+
+ try{
+  saveData();
+ }catch(error){
+  skins.shift();
+  alert("Không đủ dung lượng lưu trên thiết bị. Hãy dùng ảnh nhỏ hơn.");
+  return;
+ }
+
+ $("skinForm").reset();
+ render();
+ renderAdmin();
+ alert("Đã lưu bản nháp trên thiết bị này.");
+});
+
+document.querySelectorAll("[data-filter]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  document.querySelector(".chip.active")?.classList.remove("active");
   btn.classList.add("active");
-  currentCategory=btn.dataset.cat;
+  activeFilter=btn.dataset.filter;
   render();
  });
 });
 
-search.addEventListener("input",render);
+$("search").addEventListener("input",render);
+
+function closeModal(id){
+ $(id).classList.remove("show");
+}
+
+document.querySelectorAll(".overlay").forEach(overlay=>{
+ overlay.addEventListener("click",e=>{
+  if(e.target===overlay)overlay.classList.remove("show");
+ });
+});
 
 render();
 </script>
 </body>
-</html>
+    </html>
+ 
